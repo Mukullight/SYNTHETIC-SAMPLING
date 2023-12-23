@@ -1,0 +1,21 @@
+digraph {
+	"Data Collection" [fillcolor=lightblue shape=ellipse style=filled]
+	"Data Preprocessing" [fillcolor=lightgreen shape=ellipse style=filled]
+	"Data Analysis and Exploration" [fillcolor=lightcoral shape=ellipse style=filled]
+	"Model Selection" [fillcolor=lightyellow shape=ellipse style=filled]
+	"Model Training and Validation" [fillcolor=lightpink shape=ellipse style=filled]
+	"Real-time Scoring" [fillcolor=lightsalmon shape=ellipse style=filled]
+	"Threshold Optimization" [fillcolor=lightseagreen shape=ellipse style=filled]
+	"Post-Detection Actions" [fillcolor=lightskyblue shape=ellipse style=filled]
+	"Feedback Loop and Model Retraining" [fillcolor=lightcoral shape=ellipse style=filled]
+	"Regulatory Compliance and Reporting" [fillcolor=lightblue shape=ellipse style=filled]
+	"Data Collection" -> "Data Preprocessing"
+	"Data Preprocessing" -> "Data Analysis and Exploration"
+	"Data Analysis and Exploration" -> "Model Selection"
+	"Model Selection" -> "Model Training and Validation"
+	"Model Training and Validation" -> "Real-time Scoring"
+	"Real-time Scoring" -> "Threshold Optimization"
+	"Threshold Optimization" -> "Post-Detection Actions"
+	"Post-Detection Actions" -> "Feedback Loop and Model Retraining"
+	"Feedback Loop and Model Retraining" -> "Regulatory Compliance and Reporting"
+}

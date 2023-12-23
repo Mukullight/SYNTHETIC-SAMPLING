@@ -1,0 +1,213 @@
+<h1>
+ Decision Tree Algorithm
+</h1>
+<h2>
+ Input and Notation
+</h2>
+<ul>
+ <li>
+  $D$: The dataset, consisting of a set of instances and their associated attributes.
+ </li>
+ <li>
+  $A$: The set of candidate attributes.
+ </li>
+ <li>
+  $C$: The set of classes or labels.
+ </li>
+ <li>
+  $X$: The feature space, i.e., the space of possible attribute vectors.
+ </li>
+ <li>
+  $Y$: The set of possible class labels.
+ </li>
+ <li>
+  $ ext{Split}(D, A)$: A function to split the dataset $D$ based on the attribute that maximizes information gain.
+ </li>
+ <li>
+  $ ext{CreateNode}(A_i)$: A function to create a tree node for the selected attribute $A_i$.
+ </li>
+ <li>
+  $ ext{IsPure}(D)$: A function to check if the dataset $D$ is pure (contains only one class).
+ </li>
+ <li>
+  $T$: The decision tree model, represented as a tree structure.
+ </li>
+</ul>
+<h2>
+ Decision Tree Learning
+</h2>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Selecting the Best Attribute
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   We start by selecting the attribute that provides the most information, often measured by information gain or Gini impurity. The chosen attribute becomes the root of the decision tree.
+  </p>
+ </li>
+</ol>
+<p>
+ $$
+   A^* = rg \max_{A \in A}     ext{InformationGain}(D, A)
+   $$
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Creating Tree Nodes
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   For each attribute $A_i$, we create a tree node and label it with the chosen attribute.
+  </p>
+ </li>
+</ol>
+<p>
+ $$
+    ext{TreeNode}(A_i) =    ext{CreateNode}(A_i)
+   $$
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Splitting the Dataset
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   We divide the dataset into subsets based on the values of the selected attribute.
+  </p>
+ </li>
+</ol>
+<p>
+ $$
+    ext{Subsets} =  ext{Split}(D, A^*)
+   $$
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Repeat for Subsets
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   For each subset, we recursively apply the decision tree algorithm.
+  </p>
+ </li>
+</ol>
+<p>
+ $$
+    ext{TreeNode}(A_i) =    ext{DecisionTree}(A_i)
+   $$
+</p>
+<ol>
+ <li>
+  <p>
+   <strong>
+    Stop Conditions
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   If a stopping condition is met, we create a leaf node with the majority class label. This might be due to conditions such as:
+  </p>
+  <ul>
+   <li>
+    The subset is pure (contains only one class).
+   </li>
+   <li>
+    A predefined maximum depth is reached.
+   </li>
+   <li>
+    A minimum number of instances in a node is reached.
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Tree Pruning (Optional)
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   After constructing the tree, we can apply pruning techniques to reduce overfitting.
+  </p>
+ </li>
+ <li>
+  <p>
+   <strong>
+    Output
+   </strong>
+   :
+  </p>
+ </li>
+ <li>
+  <p>
+   The decision tree $T$ is now ready for making predictions.
+  </p>
+ </li>
+</ol>
+<h3>
+ Example:
+</h3>
+<p>
+ Suppose we have a dataset with attributes A, B, and C, and the goal is to classify data into classes X, Y, and Z.
+</p>
+<ul>
+ <li>
+  Selecting the best attribute might lead to:
+  <ul>
+   <li>
+    Node 1: Attribute A
+    <ul>
+     <li>
+      Subset 1: Value 1 -&gt; Class X
+     </li>
+     <li>
+      Subset 2: Value 2
+      <ul>
+       <li>
+        Node 2: Attribute B
+        <ul>
+         <li>
+          Subset 3: Value 1 -&gt; Class X
+         </li>
+         <li>
+          Subset 4: Value 2 -&gt; Class Y
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li>
+    Subset 5: Value 3 -&gt; Class Z
+   </li>
+  </ul>
+ </li>
+</ul>
+<p>
+ This textual representation outlines the steps of the decision tree algorithm and provides an example. You can adapt it to your specific machine learning model and dataset.
+</p>
